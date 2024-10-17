@@ -15,7 +15,7 @@ export async function like(formData) {
       { user_id: user.id, post_id: post_id },
     )
     .select()
-    redirect(`/${post_id}`);
+    redirect(`/posts/${post_id}`);
 }
 
 export async function likeDelete(formData) {
@@ -29,7 +29,7 @@ export async function likeDelete(formData) {
     .delete()
     .eq( 'post_id', post_id )
     .eq('user_id', user.id)
-    redirect(`/${post_id}`);
+    redirect(`/posts/${post_id}`);
 }
   
 export async function addComments(formData) {
@@ -45,7 +45,7 @@ export async function addComments(formData) {
     { content, user_id: user.id, post_id: post_id }
   )
   .select()
-  redirect(`/${post_id}`);
+  redirect(`/posts/${post_id}`);
 }
 
   

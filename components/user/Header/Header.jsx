@@ -15,6 +15,8 @@ export default async function Header() {
         <form action={signOut}>
           <button>Log Out</button>
         </form>
+
+        <Link href={`/${"@" + user.email.split("@")[0]}`}>profile</Link>
     </header>
   )
 }

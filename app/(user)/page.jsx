@@ -12,7 +12,7 @@ export default async function Home() {
       <div className="posts">
         {posts.map(x => 
           <div className="post-item" key={x.id}>
-            <Link href={`/${x.id}`}>
+            <Link href={`/posts/${x.id}`}>
               <h3>{x.title}</h3>
               <p>{x.content}</p>
             </Link>
