@@ -1,5 +1,6 @@
 import { signOut } from "@/app/login/actions";
 import { createClient } from "@/utils/supabase/server";
+import Link from "next/link";
 
 export default async function Header() {
   const supabase = createClient();
@@ -9,9 +10,7 @@ export default async function Header() {
     <header className="header">
         <h1>Medium</h1>
 
-        <form action="">
-          <button className="write-button">Write</button>
-        </form>
+        <Link href="new-story">Write</Link>
 
         <form action={signOut}>
           <button>Log Out</button>
