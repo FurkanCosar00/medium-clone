@@ -2,11 +2,13 @@
 
 import Link from 'next/link'
 import React, { useState } from 'react';
-import { login, signup } from './actions';
 import Modal from '@/components/user/Login Page/Modal';
+import LoginForm from './loginform';
+import SignupForm from './signupform';
 
 export default function LoginPage() {
   const [showModal, setShowModal] = useState(false);
+  const [signOrLogin, setSignOrLogin] = useState("login");
   
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -35,14 +37,12 @@ export default function LoginPage() {
       </div>
       
       <Modal show={showModal} onClose={toggleModal}>
-        <form>
-          <label htmlFor="email">Email:</label>
-          <input id="email" name="email" type="email" required />
-          <label htmlFor="password">Password:</label>
-          <input id="password" name="password" type="password" required />
-          <button formAction={login}>Log in</button>
-          <button formAction={signup}>Sign up</button>
-        </form>
+        <div className="navigation">
+          <button onClick={() => setSignOrLogin("login")}>login</button>
+          <button onClick={() => setSignOrLogin("signup")}>signup</button>
+        </div>
+
+        {signOrLogin === "login" ? <LoginForm /> : <SignupForm />}
       </Modal>
     </>
   )

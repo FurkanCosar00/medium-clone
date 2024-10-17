@@ -8,7 +8,7 @@ export default async function Header() {
 
   return (
     <header className="header">
-        <h1>Medium</h1>
+        <Link href="/"><h1>Medium</h1></Link>
 
         <Link href="new-story">Write</Link>
 
