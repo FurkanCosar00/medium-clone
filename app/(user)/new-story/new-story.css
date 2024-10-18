@@ -6,6 +6,7 @@
         width: 435px;
         height: 60px;
         border: none;
+        font-size: 34px;
     }
 
     input::placeholder {
@@ -14,6 +15,7 @@
 
     input:nth-child(3) {
         height: 30px;
+        font-size: 18px;
     }
 
     input:nth-child(3)::placeholder {
