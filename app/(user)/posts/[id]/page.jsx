@@ -1,5 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import { addComments, like, likeDelete } from "./actions";
+import "./post-detail.css";
 
 export default async function PostDetailPage({ params }) {
     const supabase = createClient();
@@ -24,37 +25,46 @@ export default async function PostDetailPage({ params }) {
     .eq("post_id", params.id)
 
     return (
-        <div className="detail">
-            <h1>{post.title} </h1>
+        <div className="container">
+            <div className="details-title">
+                <h1>{post.title} </h1>
+
+                <div className="like-section">
+                    {userLiked ?
+                        (
+                        <form action={likeDelete}>
+                            <input type="hidden" name="post_id" value={params.id} />
+                            <button>Dislike</button>
+                            <p>{likeCounter}</p>
+                        </form>
+                        )
+                        :
+                        (
+                        <form action={like}>
+                            <input type="hidden" name="post_id" value={params.id} />
+                            <button>Like</button>
+                            <p>{likeCounter}</p>
+                        </form>
+                        )
+                    }
+                </div>
+            </div>
+
             <h2>{post.content}</h2>
             
-            {userLiked ?
-                (
-                <form action={likeDelete}>
+            <div className="comments">
+                <form action={addComments}>
+                    <input type="text" name="comments" placeholder="What are your thoughts?"></input>
                     <input type="hidden" name="post_id" value={params.id} />
-                    <button>beğenme</button>
+                    <button type="submit">Respond</button>
                 </form>
-                )
-                :
-                (
-                <form action={like}>
-                    <input type="hidden" name="post_id" value={params.id} />
-                    <button>beğen</button>
-                </form>
-                )
-            }
 
-            <p>{likeCounter}</p>
-
-            <form action={addComments}>
-                <textarea name="comments" placeholder="Yorumunuzu yazın..."></textarea>
-                <input type="hidden" name="post_id" value={params.id} />
-                <button type="submit">Yorumu Gönder</button>
-            </form>
-
-            {comments.reverse().map(x =>
-                <p key={x.id}>{x.content}</p>
-            )}
+                {comments.reverse().map(x =>
+                    <div className="comment-item"  key={x.id}>
+                        <p>{x.content}</p>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

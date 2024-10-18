@@ -1,0 +1,70 @@
+.container {
+    width: 435px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+
+    .details-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0px;
+
+        h1 {            
+            text-align: center;
+            font-size: 32px;
+            color: #242424;
+            line-height: 38px;
+        }
+
+        .like-section form {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+
+            button {
+                border: none;
+                padding: 4px;
+            }
+        }
+    }
+
+    h2 {
+        letter-spacing: -0.003em;
+        line-height: 28px;
+        font-size: 18px;
+        color: #444444;
+    }
+
+    .comments {
+        display: flex;
+        flex-direction: column;
+        gap: 44px;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            input {
+                border: none;
+                height: 44px;
+                padding: 10px;
+                background-color: #f1f1f1;
+            }
+
+            button {
+                color: #fff;
+                border: none;
+                padding: 8px;
+                background-color: #1a8917;
+            }
+        }
+
+        .comment-item {
+            padding-bottom: 30px;
+            border-bottom: 1px solid #f2f2f2;
+        }
+    }
+}
