@@ -3,7 +3,7 @@ import { login } from './actions'
 export default function LoginForm() {
     return (
       <form className="form">
-        <h3>Log in</h3>
+        <h1>Welcome back.</h1>
 
         <div className="form-item">
           <label htmlFor="email">Email:</label>

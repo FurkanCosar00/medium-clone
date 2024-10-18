@@ -1,6 +1,8 @@
 import { signOut } from "@/app/login/actions";
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
+import "./header.css"
+import { redirect } from "next/navigation";
 
 export default async function Header() {
   const supabase = createClient();
@@ -8,15 +10,13 @@ export default async function Header() {
 
   return (
     <header className="header">
-        <Link href="/"><h1>Medium</h1></Link>
+      <Link href="/"><h1>Medium</h1></Link>
 
-        <Link href="new-story">Write</Link>
-
-        <form action={signOut}>
-          <button>Log Out</button>
-        </form>
-
-        <Link href={`/${"@" + user.email.split("@")[0]}`}>profile</Link>
+      <ul className="navigation">
+        <li><Link href="/new-story">Write</Link></li>
+        <li><form action={signOut}><button>Log Out</button></form></li>
+        <li><Link href={`/profile/${"@" + user.email.split("@")[0]}`}>profile</Link></li>
+      </ul>
     </header>
   )
 }

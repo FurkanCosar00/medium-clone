@@ -3,7 +3,7 @@ import { signup } from './actions'
 export default function SignupForm() {
     return (
       <form className="form">
-        <h3>Sign in</h3>
+        <h1>Join Medium.</h1>
 
         <div className="form-item">
           <label htmlFor="email">Email:</label>

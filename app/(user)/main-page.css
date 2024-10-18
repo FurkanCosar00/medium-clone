@@ -1,0 +1,32 @@
+
+.container {
+    width: 435px;
+    margin: 0 auto;
+    
+    .posts {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px 0px;
+    
+        .post-item {
+            padding: 12px 6px;
+            text-decoration: none;
+            border-bottom: 1px solid #f2f2f2;
+            min-height: 150px;
+
+            small {
+                color: #6b6b6b;
+            }
+    
+            h3 {
+                font-size: 24px;
+                color: #242424;
+            }
+    
+            p {
+                color: #6b6b6b;
+            }
+        }
+    }
+}

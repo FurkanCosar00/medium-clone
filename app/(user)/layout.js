@@ -1,10 +1,13 @@
 import Header from "@/components/user/Header/Header";
 
-export default  function UserLayout({ children }) {
+export default function RootLayout({ children }) {
   return (
-    <div>
-      <Header />
-      {children}
-    </div>
-  )
+    <>
+        <Header />
+        
+        <div>
+            {children}
+        </div>
+    </>
+  );
 }
