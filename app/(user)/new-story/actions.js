@@ -19,4 +19,6 @@ export async function SavePost(formData) {
   .insert({ title, content, user_id: user.id })
   .select()
   .single();
+
+  redirect(`/posts/${data.id}`);
 }
